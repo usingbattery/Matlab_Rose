@@ -14,5 +14,5 @@ flower_position=[1,2,3]; % 花托位置
 flower_size=1; % 放大倍数
 petal_number=8; % 花瓣数量
 % 画出玫瑰
-mylove=Rose(fineness,flower_position,flower_size,petal_number);
-mylove.Render();
+rose=Rose(fineness,flower_position,flower_size,petal_number);
+rose.Render();
