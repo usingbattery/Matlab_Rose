@@ -153,7 +153,6 @@ classdef Petal
             
             begins=[left_begin,right_begin];
             ends=[left_end,right_end];
-            
             directions=[1,-1];
             % 从左右侧向中心
             for i=[1,2]
