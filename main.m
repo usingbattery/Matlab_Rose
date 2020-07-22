@@ -9,8 +9,8 @@ ylabel('y');% 标识y轴
 zlabel('z');% 标识z轴
 
 % 参数准备
-fineness=1;% 渲染精细度,分辨率
-flower_position=[0,0,0];% 位置,以花托为准
+fineness=1;% 渲染精细度，分辨率
+flower_position=[0,0,0];% 花朵位置,以花托为准
 flower_size=1;% 放大倍数
 petal_number=10;% 花瓣数量
 calyx_number=4;% 花萼数量
