@@ -6,7 +6,7 @@ classdef Rose<Flower
     properties(Hidden)
         petal_ratio=[1.00,1.00,1.00];% 花瓣大小比例[直径x,直径y,高z]
         calyx_ratio=[1.08,1.08,0.32];% 花萼大小比例[直径x,直径y,高z]
-        branch_ratio=[0.16,0.16,-3.6];% 花枝大小比例[直径x,直径y,高z]
+        branch_ratio=[0.16,0.16,-3.60];% 花枝大小比例[直径x,直径y,高z]
 
         petal_theta_range=240;% 花瓣角度大小,角度制
         calyx_theta_range=50;% 花萼角度大小,角度制
