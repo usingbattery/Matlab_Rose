@@ -9,7 +9,7 @@ classdef Branch
         radius_z;% 花枝半径radius_z[]
         curve;% 花枝弯曲线[方向,幅度[]]
         color;% [color_x,color_y,color_z]
-        position;% 起始端圆心坐标[position_x,position_y,position_z]
+        position;% 起始端的圆心坐标[position_x,position_y,position_z]
     end
 
     methods
