@@ -86,7 +86,7 @@ classdef Flower
             color=this.petal_color(petal_sequence,:);
             line_c=this.petal_line_color(petal_sequence,:);
             position=this.petal_position(petal_sequence,:);
-            % 生成并渲染花瓣
+            % 生成花瓣
             petal=Petal(size,pixel,theta,radius_z,fillet,color,line_c,position);
         end
         
