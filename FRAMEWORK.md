@@ -1,33 +1,27 @@
 # framework:
 ## class flower
 
-...
-render(){
+    render(){
 
-  attribute=get_attribute();
+      attribute=get_attribute();
   
-  component=new component(attribute);
+      component=new component(attribute);
   
-  component.render();
+      component.render();
   
-}
-...
+    }
 
 ## class rose<flower
 
-...
-get_attribute(){};
-...
+    get_attribute(){};
 
 ## class component
 //petal and branch
-  
-...
-render(){
 
-  points=get_points();
+    render(){
+
+      points=get_points();
   
-  surf(points);
+      surf(points);
   
-}
-...
+    }
