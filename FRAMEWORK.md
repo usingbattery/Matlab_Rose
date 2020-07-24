@@ -15,7 +15,7 @@
 
 ## class rose extends flower{
 
-  get_attribute();
+  get_attribute(){};
   
 }
 
