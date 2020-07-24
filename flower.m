@@ -2,30 +2,30 @@ classdef Flower
     
     % 花朵父类
     
-    % 花朵通用属性,构造时输入
+    % 花朵通用参数，构造时输入
     properties
-        fineness=1;% 渲染精细度
-        flower_position=[0,0,0];% 位置,以花托为准[x,y,z]
+        fineness=1;% 渲染精细度，分辨率
+        flower_position=[0,0,0];% 位置,花萼根部坐标[x,y,z]
         flower_size=1;% 整体放大倍数
         petal_number=[8,4];% 花瓣数量[花瓣1,花瓣2,...]
     end
     
-    % 花瓣控制参数，构造时计算
+    % 花瓣控制参数，使用时计算
     properties(Hidden)
-        petal_size;% [size_x,size_y,size_z;...]
-        petal_pixel;% [pixel_xy,pixel_z;...]
-        petal_theta;% [theta_start,theta_range;...]
-        petal_radius_z;% radius_z[][]
-        petal_fillet;% fillet[][]
-        petal_color;% [red,green,blue,dark;...]
-        petal_line_color;% [red,green,blue;...]
-        petal_position;% 相对花托位移[position_x,position_y,position_z;...]
-        branch_size;% [size_x,size_y,size_z]
-        branch_pixel;% [pixel_xy,pixel_z]
-        branch_radius_z;% radius_z[]
-        branch_curve;% 花枝弯曲线[方向,幅度[]]
-        branch_color;% [red,green,blue]
-        branch_position;% 花枝起始端点位置[x,y,z]
+        petal_size;% 花瓣大小[size_x,size_y,size_z;...]
+        petal_pixel;% 花瓣像素数量[pixel_xy,pixel_z;...]
+        petal_theta;% 花瓣角度大小[theta_start,theta_range;...]
+        petal_radius_z;% 花瓣母线radius_z[][]
+        petal_fillet;% 花瓣圆角fillet[][]
+        petal_color;% 花瓣颜色[red,green,blue,dark;...]
+        petal_line_color;% 描边颜色[red,green,blue;...]
+        petal_position;% 花瓣根部位置[position_x,position_y,position_z;...]
+        branch_size;% 枝干大小[size_x,size_y,size_z]
+        branch_pixel;% 枝干像素数量[pixel_xy,pixel_z]
+        branch_radius_z;% 枝干母线radius_z[]
+        branch_curve;% 枝干弯曲线[方向,幅度[]]
+        branch_color;% 枝干颜色[red,green,blue]
+        branch_position;% 枝干起始端点位置[x,y,z]
     end
     
     % 基本方法
@@ -37,6 +37,10 @@ classdef Flower
             this.flower_position=flower_position;
             this.flower_size=flower_size;
             this.petal_number=petal_number;
+        end
+        
+        % 渲染图像
+        function Render(this)
             %参数计算
             this.petal_size=this.get_petal_size();
             this.petal_pixel=this.get_petal_pixel();
@@ -52,27 +56,22 @@ classdef Flower
             this.branch_curve=this.get_branch_curve();
             this.branch_color=this.get_branch_color();
             this.branch_position=this.get_branch_position();
-        end
-        
-        % 渲染图像
-        function Render(this)
-            % 环境设置
-            hold on;
             
+            % 渲染图像
+            isholdon=ishold();% 缓存画板状态
+            hold on;% 画板置为保持
             % 渲染花瓣
             for petal_sequence=1:sum(this.petal_number)
-                % 生成并渲染花瓣
                 petal=this.Get_Petal(petal_sequence);
                 petal.Render();
             end
-            
             % 渲染花枝
             branch_rose=this.Get_Branch();
             branch_rose.Render();
-            
-            % 环境设置
-            shading interp;
-            hold off;
+            shading interp;% 关闭网格
+            if ~isholdon
+                hold off;% 恢复画板状态
+            end
         end
         
         %花瓣生成
@@ -86,7 +85,7 @@ classdef Flower
             color=this.petal_color(petal_sequence,:);
             line_c=this.petal_line_color(petal_sequence,:);
             position=this.petal_position(petal_sequence,:);
-            % 生成花瓣
+            % 花瓣生成
             petal=Petal(size,pixel,theta,radius_z,fillet,color,line_c,position);
         end
         
@@ -99,11 +98,12 @@ classdef Flower
             curve=this.branch_curve;
             color=this.branch_color;
             position=this.branch_position;
-            % 花枝生成
+            % 枝干生成
             branch_rose=Branch(size,pixel,radius_z,curve,color,position);
         end
     end
     
+    % 子类规范
     methods(Abstract)
         get_petal_size(this);
         get_petal_pixel(this);
