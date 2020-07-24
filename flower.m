@@ -59,7 +59,7 @@ classdef Flower
             
             % 渲染图像
             isholdon=ishold();% 缓存画板状态
-            hold on;% 画板置为保持
+            hold on;% 画板状态置为保持
             % 渲染花瓣
             for petal_sequence=1:sum(this.petal_number)
                 petal=this.Get_Petal(petal_sequence);
