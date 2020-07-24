@@ -1,5 +1,5 @@
 # framework:
-## class flower{
+## class flower
 
   render(){
   
@@ -11,15 +11,13 @@
     
   }
   
-}
 
-## class rose extends flower{
+## class rose extends flower
 
   get_attribute(){};
   
-}
 
-## class component{
+## class component
 
   //petal and branch
   
@@ -31,4 +29,3 @@
     
   }
   
-}
