@@ -2,25 +2,32 @@
 ## class flower
 
 ...
-  render(){
-    attribute=get_attribute();
-    component=new component(attribute);
-    component.render();
-  }
+render(){
+
+  attribute=get_attribute();
+  
+  component=new component(attribute);
+  
+  component.render();
+  
+}
 ...
 
 ## class rose<flower
 
 ...
-  get_attribute(){};
+get_attribute(){};
 ...
 
 ## class component
-  //petal and branch
+//petal and branch
   
 ...
-  render(){
-    points=get_points();
-    surf(points);
-  }
+render(){
+
+  points=get_points();
+  
+  surf(points);
+  
+}
 ...
