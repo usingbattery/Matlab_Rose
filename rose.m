@@ -6,7 +6,7 @@ classdef Rose<Flower
     properties(Hidden)
         petal_ratio=[1.00,1.00,1.00];% 花瓣大小比例[直径x,直径y,高z]
         calyx_ratio=[1.08,1.08,0.32];% 花萼大小比例[直径x,直径y,高z]
-        branch_ratio=[0.16,0.16,-3.60];% 花枝大小比例[直径x,直径y,高z]
+        branch_ratio=[0.16,0.16,-3.6];% 花枝大小比例[直径x,直径y,高z]
 
         petal_theta_range=240;% 花瓣角度大小,角度制
         calyx_theta_range=50;% 花萼角度大小,角度制
@@ -313,5 +313,76 @@ classdef Rose<Flower
             branch_position=this.flower_position+position_;
         end
         
+        % set方法
+        
+        % 设置花瓣大小比例
+        function this=set.petal_ratio(this,petal_ratio)
+            this.petal_ratio=petal_ratio;
+        end
+        
+        % 设置花萼大小比例
+        function this=set.calyx_ratio(this,calyx_ratio)
+            this.calyx_ratio=calyx_ratio;
+        end
+        
+        % 设置花枝大小比例
+        function this=set.branch_ratio(this,branch_ratio)
+            this.branch_ratio=branch_ratio;
+        end
+        
+        % 设置花瓣角度大小
+        function this=set.petal_theta_range(this,petal_theta_range)
+            this.petal_theta_range=max(0,petal_theta_range);
+        end
+        
+        % 设置花萼角度大小
+        function this=set.calyx_theta_range(this,calyx_theta_range)
+            this.calyx_theta_range=max(0,calyx_theta_range);
+        end
+        
+        % 设置花瓣轴向曲线参数
+        function this=set.petal_inflexion(this,petal_inflexion)
+            this.petal_inflexion=petal_inflexion;
+        end
+        
+        % 设置花瓣径向凹凸
+        function this=set.petal_inflexion_power(this,petal_inflexion_power)
+            this.petal_inflexion_power=max(0,petal_inflexion_power);
+        end
+        
+        % 设置花萼轴向曲线参数
+        function this=set.calyx_inflexion(this,calyx_inflexion)
+            this.calyx_inflexion=calyx_inflexion;
+        end
+        
+        % 设置花萼径向凹凸
+        function this=set.calyx_inflexion_power(this,calyx_inflexion_power)
+            this.calyx_inflexion_power=max(0,calyx_inflexion_power);
+        end
+        
+        % 设置花瓣颜色基色
+        function this=set.petal_baseColor(this,petal_baseColor)
+            this.petal_baseColor=petal_baseColor;
+        end
+        
+        % 设置花萼颜色基色
+        function this=set.calyx_baseColor(this,calyx_baseColor)
+            this.calyx_baseColor=calyx_baseColor;
+        end
+        
+        % 设置花枝颜色基色
+        function this=set.branch_baseColor(this,branch_baseColor)
+            this.branch_baseColor=branch_baseColor;
+        end
+        
+        % 设置花瓣边色基色
+        function this=set.petal_line_color_(this,petal_line_color_)
+            this.petal_line_color_=petal_line_color_;
+        end
+        
+        % 设置花萼边色基色
+        function this=set.calyx_line_color_(this,calyx_line_color_)
+            this.calyx_line_color_=calyx_line_color_;
+        end
     end
 end
